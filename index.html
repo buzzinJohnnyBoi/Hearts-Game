@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hearts</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            padding: 0;
+            border-radius: 10px;
+            user-select: none;
+        }
+        card {
+            font-size: 20px;
+            padding: 20px 10px;
+            border: 2px solid black;
+            background-color: white;
+            color:black;
+            margin: 0px 3px 0px 3px;
+            display: inline-block;
+
+        }
+        div {
+            color:white;
+        }
+        body {
+            background-color: black;
+            color: white;
+        }
+        p {
+            text-align: center;
+        }
+        #h1 card {
+            display: none;
+        }
+        #h2 card {
+            display: none;
+        }
+        #h3 card {
+            display: none;
+        }
+                #h1 {
+                width: 100px;
+            height: 60px;
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            border-top:40px solid blue;
+            left: 450px;
+            text-align: center;
+
+        }
+                #h2 {
+            width: 100px;
+            height: 60px;
+            background-color: blue;
+            position: absolute;
+            top: 200px;
+            border-top:40px solid blue;
+            left: 900px;
+            text-align: center;
+
+        }
+                #h3 {
+            width: 100px;
+            height: 60px;
+            background-color: blue;
+            position: absolute;
+            top: 200px;
+            border-top:40px solid blue;
+            left: 0px;
+            text-align: center;
+
+        }
+
+        #h4 {
+            width: 800px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 500px;
+            left: 100px;
+        }
+        box {
+            font-size: 25px;
+            position: absolute;
+            top: 100px;
+            left: 450px;
+        }
+        .score {
+            font-size: 20px;
+            position: absolute;
+            top: 1px;
+        }
+        .qwerty {
+            position: absolute;
+            left: 440px;
+            top: 150px;
+        }
+                card1 {
+            font-size: 20px;
+            padding: 20px 10px;
+            border: 2px solid black;
+            background-color: white;
+            color:black;
+            position: absolute;
+        }
+
+        .textbox {
+            color: black;
+            position: absolute;
+            top: 700px;
+            background: white;
+            width: 510px;
+            left: 210px;
+            font-size: 20px;
+            text-align: center;
+            height: 30px;
+        }
+        #NotRivers
+        {
+            resize: none;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        button {
+            border-radius:0;
+            padding: 5px;
+        }
+        #b1 {
+            position: absolute;
+            top: 35px;
+            left: 520px;
+        }
+
+        .square {
+            width: 400px;
+            height: 400px;
+            background-color: white;
+            position: absolute;
+            left: 26%;
+            top: 30%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: rgba(8, 8, 8, 0.5);
+            box-shadow: rgba(8, 8, 8, 0.5);
+            font-size: 30px;
+            line-height: 60px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<script src="Console.js"></script>
+    <br>
+    <br>
+    <div id="h1"><p id="h1p">Bubba</p><img src="1.png" style="width:100%; display:none;" id="pic1"><card></card> <card></card> <card></card>
+                 <card></card> <card></card> <card></card>
+                 <card></card> <card></card> <card></card>
+                 <card></card> <card></card> <card></card> <card></card><br></div><br><br><br>
+    <div id="h2"><p id="h2p">Big Al</p><img src="1.png" style="width:100%; display:none;" id="pic2"><card></card> <card></card> <card></card> 
+                 <card></card> <card></card> <card></card> 
+                 <card></card> <card></card> <card></card> 
+                 <card></card> <card></card> <card></card> <card></card> <br></div><br><br><br>
+    <div id="h3"><p id="h3p">BillyBobJoe</p><img src="1.png" style="width:100%; display:none;" id="pic3"><card></card> <card></card> <card></card> 
+                 <card></card> <card></card> <card></card> 
+                 <card></card> <card></card> <card></card> 
+                 <card></card> <card></card> <card></card> <card></card> <br></div><br><br><br>
+<box></box>
+<div class="qwerty">
+    <card1 style="left: 50px;  top:0px;" id="q2">1</card1>
+    <card1 style="left: -50px;  top:100px;" id="q3">3</card1>
+    <card1 style="left: 150px; top:100px;" id="q1">2</card1>
+    <card1 style="left: 50px; top:200px;" id="q4">4</card1>
+</div>
+<div class="textbox"><!-- <input type="text" id="NotRivers"></input> --><button onclick="pass();">Pass</button> <par>Pass 3 Cards</par> <!-- <button onclick="submit();" id="b1">Submit</button> --></div>
+
+    <div id="h4"><p id="h4p">Player 4</p>
+                 <card style="margin-left: 10px;" onclick = "pc(39, 0);"></card> <card onclick = "pc(40, 1);"></card> <card onclick = "pc(41, 2);"></card> 
+                 <card onclick = "pc(42, 3);"></card> <card onclick = "pc(43, 4);"></card> <card onclick = "pc(44, 5);"></card> 
+                 <card onclick = "pc(45, 6);"></card> <card onclick = "pc(46, 7);"></card> <card onclick = "pc(47, 8);"></card> 
+                 <card onclick = "pc(48, 9);"></card> <card onclick = "pc(49, 10);"></card> <card onclick = "pc(50, 11);"></card> 
+                 <card onclick = "pc(51, 12);"></card> 
+                 <br></div><br>
+                 <div class="score" id="s1"> </div>
+                 <div class="score" id="s2" style="top:25px;"> </div>
+                 <div class="score" id="s3" style="top:50px;"> </div>
+                 <div class="score" id="s4" style="top:75px;"> </div>
+                 <div class="square" id="winscreen"><strong id="strong1">You have lost! ha!</strong><br><strong id="strong2">Bubba has won! ha!</strong><br><button onclick="playAgain();">Play again</button></div>
+</body>
+<script src="values.js"></script>
+<script src="commands.js"></script>
+<script src="cardvalue.js"></script>
+<script src="js1.js"></script>
+<script src="brain.js"></script>
+<script>
+// gamestage 1
+var theCards = document.querySelectorAll("card");
+for(var card = 0; card < theCards.length; card++)
+{  
+    theCards[card].style.backgroundColor = "white";
+}
+    var cards = ["2♥", "3♥", "4♥", "5♥", "6♥", "7♥", "8♥", "9♥", "10♥", "J♥", "Q♥", "K♥", "A♥", 
+         "2♠", "3♠", "4♠", "5♠", "6♠", "7♠", "8♠", "9♠", "10♠", "J♠", "Q♠", "K♠", "A♠", 
+        "2♦", "3♦", "4♦", "5♦", "6♦", "7♦", "8♦", "9♦", "10♦", "J♦", "Q♦", "K♦", "A♦", 
+       "2♣", "3♣", "4♣", "5♣", "6♣", "7♣", "8♣", "9♣", "10♣", "J♣", "Q♣", "K♣", "A♣" ]
+
+    var cardsThatDontemty = ["2♥", "3♥", "4♥", "5♥", "6♥", "7♥", "8♥", "9♥", "10♥", "J♥", "Q♥", "K♥", "A♥", 
+                             "2♠", "3♠", "4♠", "5♠", "6♠", "7♠", "8♠", "9♠", "10♠", "J♠", "Q♠", "K♠", "A♠", 
+                                     "2♦", "3♦", "4♦", "5♦", "6♦", "7♦", "8♦", "9♦", "10♦", "J♦", "Q♦", "K♦", "A♦", 
+                                     "2♣", "3♣", "4♣", "5♣", "6♣", "7♣", "8♣", "9♣", "10♣", "J♣", "Q♣", "K♣", "A♣" ]
+    var passCards = 0;
+    var hand1 = []
+    var hand2 = []
+    var hand3 = []
+    var hand4 = []
+    var speed = 500;
+    var num;  
+    var thing1 = 0;
+    var thing2 = 0;
+    var thing3 = 0;
+    var thing4 = 0;
+    var i; 
+    var gameStage = 0;
+    var john = true;
+    let cardthing = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    let bal;
+    let bal2;
+    var trf = true;
+    let mommad = true;
+    var box = document.querySelector("box");
+    var p1score = 0;
+    var p2score = 0;
+    var p3score = 0;
+    var p4score = 0;
+    var p1scorer = 0;
+    var p2scorer = 0;
+    var p3scorer = 0;
+    var p4scorer = 0;
+    var wptp = 4;
+    var leadCardplayed;
+    var firstPlayed = 0;
+    let TRRFF = true; 
+    var whichtrick = 1;
+    var playedhearts = false;
+    var colorHD = "red";
+    var colorCS = "black";
+    // var uerySelector("par");
+    var canpressbutton = true;
+    var isClearing = false;
+
+    var player1Msg = "";
+    var player2Msg = "";
+    var player3Msg = "";
+    var player4Msg = "";
+        var mom;
+        var huhg;
+
+        deal();
+
+        function deal() {
+        var num14 = 0;
+    for (var i = 0; i <= 51; i++) {
+
+        var randomNum = Math.floor(Math.random() * (cards.length - 1));
+         if (num14 == 0) {hand1.push(cards[randomNum]); cards.splice(randomNum, 1); }
+        else if (num14 == 1) {hand2.push(cards[randomNum]); cards.splice(randomNum, 1);}
+        else if (num14 == 2) {hand3.push(cards[randomNum]); cards.splice(randomNum, 1);}
+        else if (num14 == 3) {hand4.push(cards[randomNum]); cards.splice(randomNum, 1);}
+        num14++;
+       if(num14 == 4) {num14 = 0;}
+    }
+        cards = [...cardsThatDontemty];
+        updatescore();
+        sort(hand1);
+        sort(hand2);
+        sort(hand3);
+        sort(hand4);
+        display(hand4, 39, 1);
+        display(hand3, 26, 1);
+        display(hand1, 0, 1);
+        display(hand2, 13, 1);
+        }
+
+    function pc(value, value2) {
+        if (gameStage == 1) {
+        if(theCards[value].style.backgroundColor == "white")
+        {
+            if(passCards < 3)
+            {
+                theCards[value].style.backgroundColor = "grey";
+                passCards ++;
+            }
+        }
+        else {
+            theCards[value].style.backgroundColor = "white";
+            passCards --;
+        }
+}
+    else if (gameStage == 2){
+        if (!isClearing) {
+             playcard(value, value2);
+        }
+    }
+}
+    function pass() {
+        document.querySelector("par").innerHTML = " ";
+        if (passCards == 3 && gameStage == 1 && canpressbutton === true) {
+        	showhands();
+			var pass =  botwhatopass(hand1);
+			var pass2 = botwhatopass(hand2);
+			var pass3 = botwhatopass(hand3);
+			if(debug)
+			{
+                console.log("%cHand1: " + hand1[pass[0]] + hand1[pass[1]] + hand1[pass[2]], "color: blue;");
+                console.log("Hand2: " + hand2[pass2[0]] + hand2[pass2[1]] + hand2[pass2[2]]);
+                console.log("Hand3: " + hand3[pass3[0]] + hand3[pass3[1]] + hand3[pass3[2]]);
+			}
+            passer(pass, pass2, pass3);
+            display(hand4, 39, 2);
+            display(hand3, 26, 2);
+            display(hand1, 0, 2);
+            display(hand2, 13, 2);
+            document.querySelector("button").style.visibility = "hidden";
+            canpressbutton = false;
+            setTimeout(function(){
+                for(var card = 0; card < theCards.length; card++)
+                {  
+                    if(theCards[card].style.backgroundColor == "grey")
+                    {
+                        theCards[card].style.backgroundColor = "white";
+                    }
+                }
+    			sort(hand1);
+                sort(hand2);
+                sort(hand3);
+                sort(hand4);
+                display(hand4, 39, 2);
+                display(hand3, 26, 2);
+                display(hand1, 0, 2);
+                display(hand2, 13, 2);
+                gamestage = 2;
+                showhands();
+                let found = hand4.some(hand => hand === "2♣"); if (found)   {MyConsole.Log("You have the 2♣"); leadCardplayed = "2♣"; wptp = 4;}
+                let found1 = hand3.some(hand => hand === "2♣"); if (found1) {MyConsole.Log("Play!"); playsomecards(3, hand3, 0);}
+                let found2 = hand2.some(hand => hand === "2♣"); if (found2) {MyConsole.Log("Play!"); playsomecards(2, hand2, 0);}
+                let found3 = hand1.some(hand => hand === "2♣"); if (found3) {MyConsole.Log("Play!"); playsomecards(1, hand1, 0);}
+            }, 2000);
+    	}
+}
+
+function passer(w1, w2, w3) {
+            var cards = [];
+            for(var card = 0; card < theCards.length; card++)
+            {  
+                if(theCards[card].style.backgroundColor == "grey")
+                {
+                    cards.push(card - 39);
+                }
+            }
+            let passcard = hand4[cards[0]];
+            hand4[cards[0]] = hand3[w3[0]];
+            hand3[w3[0]] = hand1[w1[0]];
+            hand1[w1[0]] = hand2[w2[0]];
+            hand2[w2[0]] = passcard;
+            passcard = hand4[cards[1]];
+            hand4[cards[1]] = hand3[w3[1]];
+            hand3[w3[1]] = hand1[w1[1]];
+            hand1[w1[1]] = hand2[w2[1]];
+            hand2[w2[1]] = passcard;
+            passcard = hand4[cards[2]];
+            hand4[cards[2]] = hand3[w3[2]];
+            hand3[w3[2]] = hand1[w1[2]];
+            hand1[w1[2]] = hand2[w2[2]];
+            hand2[w2[2]] = passcard; 
+}
+function submit()
+{
+    var value = document.querySelector("input").value;
+    document.querySelector("input").value = "";
+    Command(value);
+}
+
+    function display(whichhand, pluswhat, gs) {
+        if (whichhand.length < 13) {theCards[whichhand.length + pluswhat].style.display = "none"}
+    for (let i = whichhand.length - 1; i >= 0; i--) {
+        if(whichhand[i].includes("♥") || whichhand[i].includes("♦")) {
+            theCards[i + pluswhat].style.color = colorHD;
+        }  
+            else {
+                theCards[i + pluswhat].style.color = colorCS;
+            } 
+                theCards[i + pluswhat].innerHTML = whichhand[i];
+    }
+                gameStage = gs;
+             for (let i = 0; i <= whichhand.length - 1; i++) {
+                 if (theCards[i + pluswhat].style.backgroundColor == "gray") {
+                 theCards[i + pluswhat].style.backgroundColor = "white";
+             }
+         }
+    }
+    function displayplayed(whichand, whichcard, value) {
+            document.querySelector("#q" + whichcard).style.color = colorCS;
+        if(whichand[value].includes("♦") || whichand[value].includes("♥")) {
+            document.querySelector("#q" + whichcard).style.color = colorHD;
+        }  
+}
+        function sort(whichhand) {
+            trf = true;
+            john = true;
+            while(trf === true) {
+                trf = false;
+                for (let i = whichhand.length - 2; i >= 0; i--) {
+                    let john2;
+                    let honk;
+                    if (whichhand[i].includes("♦")) {john2 = "♦";}
+                    else if (whichhand[i].includes("♥")) {john2 = "♥";}
+                    else if (whichhand[i].includes("♠")) {john2 = "♠";}
+                    else if (whichhand[i].includes("♣")) {john2 = "♣";}
+                    if (whichhand[i + 1].includes("♦")) {honk = "♦";}
+                    else if (whichhand[i + 1].includes("♥")) {honk = "♥";}
+                    else if (whichhand[i + 1].includes("♠")) {honk = "♠";}
+                    else if (whichhand[i + 1].includes("♣")) {honk = "♣";}
+                        seewhich(john2, honk, whichhand, i);
+                }
+            }
+            cardthing = [whichhand.length]
+            for (let i = whichhand.length - 1; i >= 0; i--) {
+                 if (whichhand[i].includes("J")) {cardthing[i] = 11;}
+            else if (whichhand[i].includes("Q")) {cardthing[i] = 12;}
+            else if (whichhand[i].includes("K")) {cardthing[i] = 13;}
+            else if (whichhand[i].includes("A")) {cardthing[i] = 14;}
+            else {cardthing[i] = parseInt(whichhand[i]);}
+        }
+                while(john === true) {
+                john = false;
+                for (let i = cardthing.length - 2; i >= 0; i--) {
+                mommad = true;
+            if (whichhand[i + 1].includes("♣") && whichhand[i].includes("♣")) {mommad = false;}
+            else if (whichhand[i + 1].includes("♠") && whichhand[i].includes("♠")) {mommad = false;}
+            else if (whichhand[i + 1].includes("♦") && whichhand[i].includes("♦")) {mommad = false;}
+            else if (whichhand[i + 1].includes("♥") && whichhand[i].includes("♥")) {mommad = false;}
+                if (cardthing[i] > cardthing[i + 1] && mommad === false) {
+                john = true;
+                bal = cardthing[i];
+                cardthing[i] = cardthing[i + 1];
+                cardthing[i + 1] = bal;
+                bal2 = whichhand[i];
+                whichhand[i] = whichhand[i + 1];
+                whichhand[i + 1] = bal2;
+                        }
+                }
+            }
+    }
+function seewhich(value1, value2, whichhand, num) {
+    let bal3;
+            if (value1 == "♥") {if (value2 != "♥") {trf = true;}}
+            else if (value1 == "♦") {if (value2 == "♠" || value2 == "♣") {trf = true;}}
+            else if (value1 == "♠") {if (value2 == "♣") {trf = true;}}
+            else if (value1 == "♣") {}
+            if (trf === true) {
+                bal3 = whichhand[num];
+                whichhand[num] = whichhand[num + 1];
+                whichhand[num + 1] = bal3;
+                trf = true;
+            }
+}
+
+function updatescore() {
+    document.querySelector("#s1").innerHTML = document.querySelector('#h1p').innerHTML + ": "+ p1score;
+    document.querySelector("#s2").innerHTML = document.querySelector('#h2p').innerHTML + ": "+ p2score;
+    document.querySelector("#s3").innerHTML = document.querySelector('#h3p').innerHTML + ": "+ p3score;
+    document.querySelector("#s4").innerHTML = document.querySelector('#h4p').innerHTML + ": "+ p4score;
+    
+}
+function playsomecards(value, whichhand, i) {
+    firstPlayed++;
+    if(firstPlayed == 1) {
+    	leadCardplayed = whichhand[i];
+    }
+
+    displayplayed(whichhand, value, i);
+    wptp = value - 1;
+
+    if (value == 1) {
+    	wptp = 4;
+    }
+
+    document.querySelector(`#q${value}`).innerHTML = whichhand[i];
+
+    if (findsuit(whichhand[i]) == "♥") {
+    	playedhearts = true;
+        if(MyConsole.Find("heartsAreBroken").length == 0) {
+            MyConsole.Log("Hearts Are Broken", "heartsAreBroken");
+        }
+    }
+    whichhand.splice(i, 1);
+
+    display(hand4, 39, 2);
+    display(hand3, 26, 2);
+    display(hand1, 0, 2);
+    display(hand2, 13, 2);
+
+    if (firstPlayed >= 4) {
+    	pullen(); 
+    	TRRFF = false;
+    }
+    else { 
+    	play(whichhand, i);
+    }
+}
+function play(whichhand, j) {
+        if(TRRFF === true && wptp != 4) {
+		whatoplaybot(whichhand, j);
+	}
+}
+
+function playcard(value, value2) {
+	if (wptp == 4) {
+		if (playedhearts === false && findsuit(hand4[value2]) == "♥" && hascard(hand4, findsuit(leadCardplayed)) === true && whichtrick != 1 && firstPlayed != 0) {
+			whatoplayplayer(value, value2);
+		}
+		else if(playedhearts === false && findsuit(hand4[value2]) == "♥" && hascard(hand4, "♣") == true && hascard(hand4, "♠") == true && hascard(hand4, "♦") == true) {
+		    MyConsole.Log("since you only have hearts left, you can play hearts");
+			whatoplayplayer(value, value2);
+		}
+		else if(playedhearts === false && findsuit(hand4[value2]) == "♥" && firstPlayed == 0) {
+
+            var heartsFound = MyConsole.Find("heartsAreNotBroken");
+            if(heartsFound.length == 0)
+            {
+			    MyConsole.Log("hearts are not broken", "heartsAreNotBroken");
+            }
+            else 
+            {
+                if(document.querySelector("#" + heartsFound[0]).innerHTML[1] == "l")
+                {
+                    MyConsole.ReplaceAll("#" + heartsFound[0], "hearts are not broken", "warn");
+                }
+                else {
+                    MyConsole.ReplaceAll("#" + heartsFound[0], "hearts are not broken", "log");
+                }
+            }
+		}
+		else if(hand4[value2] == "Q♠") {
+			if (whichtrick == 1) {
+				MyConsole.Log(" You can't play the Q♠ on the first trick");
+			}
+			else {
+				whatoplayplayer(value, value2);
+			}
+		}
+		else if (playedhearts === true || findsuit(hand4[value2]) != "♥") {
+			whatoplayplayer(value, value2);
+		}
+	}
+}
+
+function pullen() {
+    isClearing = true;
+    let wptp2;
+    let ifhorq = 0;
+    let jameseses;
+    let gotqueen = false;
+    let n = [document.querySelector("#q1").innerHTML,document.querySelector("#q2").innerHTML,document.querySelector("#q3").innerHTML, document.querySelector("#q4").innerHTML]
+    let m = [4]
+    for (var i = 0; i < 4; i++) {
+    if (n[i].includes("J")) {m[i] = 11;}
+    else if (n[i].includes("Q")) {m[i] = 12;}
+    else if (n[i].includes("K")) {m[i] = 13;}
+    else if (n[i].includes("A")) {m[i] = 14;}
+    else {
+        m[i] = parseInt(n[i]);
+    }
+    }
+    if(leadCardplayed.includes("♦")) {jameseses = "♦";}
+    else if(leadCardplayed.includes("♥")) {jameseses = "♥";}
+    else if(leadCardplayed.includes("♣")) {jameseses = "♣";}
+    else if(leadCardplayed.includes("♠")) {jameseses = "♠";}
+        if(!(n[0].includes(jameseses))) {m[0] = 1;}
+        if(!(n[1].includes(jameseses))) {m[1] = 1;}
+        if(!(n[2].includes(jameseses))) {m[2] = 1;}
+        if(!(n[3].includes(jameseses))) {m[3] = 1;}
+    if(n[0].includes("♥")) {ifhorq++;}
+    if(n[1].includes("♥")) {ifhorq++;}
+    if(n[2].includes("♥")) {ifhorq++;}
+    if(n[3].includes("♥")) {ifhorq++;}
+    if(n[0] == "Q♠") {ifhorq += 13; gotqueen = true;}
+    if(n[1] == "Q♠") {ifhorq += 13; gotqueen = true;}
+    if(n[2] == "Q♠") {ifhorq += 13; gotqueen = true;}
+    if(n[3] == "Q♠") {ifhorq += 13; gotqueen = true;}
+    if (gotqueen === true) {
+
+        cardValsLead[14] -= 1;
+        cardValsLead[15] -= 2;
+        cardValsLead[16] -= 3;
+        cardValsLead[17] -= 4;
+        cardValsLead[18] -= 5;
+        cardValsLead[19] -= 6;
+        cardValsLead[20] -= 7;
+        cardValsLead[21] -= 8;
+        cardValsLead[22] -= 9;
+
+    }
+        if (m[0] > m[1] && m[0] > m[2] && m[0] > m[3]) {
+    	wptp2 = 0; p2scorer += ifhorq; 
+    	if (gotqueen) {
+    		document.querySelector("#pic2").style.display = "block";
+    	}
+    }
+    else if (m[1] > m[0] && m[1] > m[2] && m[1] > m[3]) {
+    	wptp2 = 1; p1scorer += ifhorq; 
+    	if (gotqueen) {
+    		document.querySelector("#pic1").style.display = "block";
+    	}
+	}
+    else if (m[2] > m[1] && m[2] > m[0] && m[2] > m[3]) {
+		wptp2 = 2; p3scorer += ifhorq; 
+    	if (gotqueen) {
+    		document.querySelector("#pic3").style.display = "block";
+    	}
+	}
+    else if (m[3] > m[1] && m[3] > m[2] && m[3] > m[0]) {wptp2 = 3;
+        if (gotqueen) {
+            var rng = Math.round(Math.random() * 5);
+            if(rng == 0)
+            {
+                MyConsole.Log("HAHAHAHAHAHAHAA I love this game");
+            }
+            else if(rng == 1)
+            {
+                MyConsole.Log(document.querySelector('#h1p').innerHTML + ' says "The Q♠ is not good."');
+            }
+            else if ( rng == 2 )
+            {
+                MyConsole.Log(document.querySelector('#h3p').innerHTML + ' says "U da woorst."')
+            }
+            else if ( rng == 3 )
+            {
+                MyConsole.Log(document.querySelector('#h2p').innerHTML + ' says "Losing suits you."')
+            }
+        }
+        p4scorer += ifhorq; MyConsole.Log("Your Lead");}
+    else {
+        if(m[0] == m[1] || m[0] == m[2] || m[0] == m[3] || m[1] == m[2] || m[1] == m[3] || m[2] == m[3])
+        {
+            MyConsole.Error("Two Cards Are Equal")
+        }
+    }
+    updatescore();
+    showhands();
+    setTimeout(function(){
+    	clear();
+    if (whichtrick == 13) {
+
+        cardValsLead = [
+            16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4,
+            14, 14.1, 14.2, 14.3, 14.4, 14.5, 14.6, 14.7, 14.8, 14.9, 1, 2, 2,
+            14, 13, 11, 10, 9, 8, 7, 6, 6, 5, 4, 3.5, 3,
+            0, 15, 13, 11, 10, 9, 8, 7, 5.5, 5, 4.5, 4, 3
+        ]
+
+		if (p1scorer == 26) {p1scorer = 0; p2scorer = 26; p3scorer = 26; p4scorer = 26;}
+		else if (p2scorer == 26) {p1scorer = 26; p2scorer = 0; p3scorer = 26; p4scorer = 26;}
+		else if (p3scorer == 26) {p1scorer = 26; p2scorer = 26; p3scorer = 0; p4scorer = 26;}
+		else if (p4scorer == 26) {p1scorer = 26; p2scorer = 26; p3scorer = 26; p4scorer = 0;}
+		p1score += p1scorer;
+		p2score += p2scorer;
+		p3score += p3scorer;
+		p4score += p4scorer;
+		p1scorer = 0;
+		p2scorer = 0;
+		p3scorer = 0;
+		p4scorer = 0;
+		updatescore();
+        if (GameIsOver() == false) {
+            document.querySelector("button").style.visibility = "visible";
+            canpressbutton = true;
+        	firstPlayed = 0;
+        	whichtrick = 1;
+        	TRRFF = true;
+        	thing1 = 0;
+    		thing2 = 0;
+    		thing3 = 0;
+    		thing4 = 0;
+    		gameStage = 0;
+    		playedhearts = false;
+            passCards = 0;
+            MyConsole.DispatchCommand(["clear"]);
+    		for (var i = 12; i >= 0; i--) {
+    			theCards[i + 39].style.display = "inline-block";
+    		}
+        	deal();
+        }
+        else {
+            LoseBaby();
+        }
+    }
+    else {
+    	firstPlayed = 0;
+    	whichtrick++;
+    	TRRFF = true;
+    	wptp = (wptp2 + 1);
+    	if(wptp == 1) {play(hand2, 1);} 
+    	else if(wptp == 2) {play(hand3, 1);} 
+    	else if(wptp == 3) {play(hand4, 1);} 
+	}
+        isClearing = false;
+    }, 1000);
+}
+
+
+function GameIsOver() {
+    if(p1score >= 100 || p2score >= 100 || p3score >= 100 || p4score >= 100) {
+        return true;
+    }
+    return false;
+}
+
+function playAgain() {
+    location.reload();
+}
+function LoseBaby()
+{
+    updatescore();
+    var who1;
+
+    if (p4score <= p2score && p4score <= p3score && p4score <= p1score) {
+        console.log(1);
+        if (p4score == p2score) {
+            who1 = "tie";
+        }
+        else if (p4score == p3score) {
+            who1 = "tie";
+        }
+        else if (p1score == p4score) {
+            who1 = "tie";
+        }
+        else {
+            who1 = "You"; 
+        }
+    }
+    else {
+        who1 = "sdf";
+    }
+    MyConsole.Error("Sombody Lost?????????????????????????????????");   
+    document.querySelector("#winscreen").style.display = "block";
+    if (who1 === "You") {
+        document.querySelector("#strong1").innerHTML = "You have won!";
+        document.querySelector("#strong2").innerHTML = "How did you do that?";
+    }
+    else if(who1 === "tie") {
+        document.querySelector("#strong1").innerHTML = "You Tied.";
+        document.querySelector("#strong2").innerHTML = "It looks like you are as smart as my robots.";           
+    }
+    else {
+        document.querySelector("#strong1").innerHTML = "You have lost!";
+        document.querySelector("#strong2").innerHTML = "This is a good start for my plan to conquer the world with robots.";              
+    }
+}
+
+</script>
+</html>
